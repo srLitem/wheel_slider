@@ -32,7 +32,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   final int _totalCount = 100;
   final int _initValue = 50;
   int _currentValue = 50;
@@ -80,24 +79,12 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 30.0,
             ),
-            WheelSlider.number(
-              horizontal: false,
-              verticalListHeight: 300.0,
-              perspective: 0.01,
-              totalCount: _nTotalCount,
-              initValue: _nInitValue,
-              unSelectedNumberStyle: const TextStyle(
-                fontSize: 16.0,
-                color: Colors.black54,
-              ),
-              selectedNumberStyle: const TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-              currentIndex: _nCurrentValue,
+            WheelSlider.timer(
+              totalCount: _totalCount,
+              initValue: _initValue,
               onValueChanged: (val) {
                 setState(() {
-                  _nCurrentValue = val;
+                  _currentValue = val;
                 });
               },
             ),
@@ -114,9 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: double.infinity,
                 color: Colors.amberAccent,
               ),
-              onValueChanged: (val) {
-
-              },
+              onValueChanged: (val) {},
             ),
           ],
         ),
